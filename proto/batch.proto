@@ -1,0 +1,255 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./;proto";
+
+message MultiSwap {
+    bytes id      = 1;
+    bytes creator = 2;
+    bytes owner   = 3;
+    string token  = 4;
+    string from   = 5;
+    string to     = 6;
+    bytes hash    = 7;
+    int64 timeout = 8;
+    repeated Asset assets = 9;
+}
+
+message Asset {
+    string group  = 1;
+    bytes amount  = 2;
+}
+
+message Swap {
+    bytes id      = 1;
+    bytes creator = 2;
+    bytes owner   = 3;
+    string token  = 4;
+    bytes amount  = 5;
+    string from   = 6;
+    string to     = 7;
+    bytes hash    = 8;
+    int64 timeout = 9;
+}
+
+message SwapKey {
+    bytes id   = 1;
+    string key = 2;
+}
+
+message Batch {
+    repeated bytes  txIDs = 1;
+    repeated Swap swaps   = 2;
+    repeated SwapKey keys = 3;
+    repeated SwapKey multi_swaps_keys = 4;
+    repeated MultiSwap multi_swaps   = 5;
+}
+
+message InitArgs {
+    bytes atomyzeSKI = 1;
+    bytes robotSKI = 2;
+    repeated string args = 3;
+}
+
+message WriteElement {
+    string key       = 1;
+    bytes value     = 2;
+    bool is_deleted = 3;
+}
+
+message ResponseError {
+    int32 code   = 1;
+    string error = 2;
+}
+
+message SwapResponse {
+    bytes id                     = 1;
+    ResponseError error          = 2;
+    repeated WriteElement writes = 3;
+}
+
+message AccountingRecord {
+    string token    = 1;
+    bytes sender    = 2;
+    bytes recipient = 3;
+    bytes amount    = 4;
+    string reason   = 5;
+}
+
+message Event {
+    string name = 1;
+    bytes value = 2;
+}
+
+message TxResponse {
+    bytes id                     = 1;
+    string method                = 2;
+    ResponseError error          = 3;
+    repeated WriteElement writes = 4;
+}
+
+message BatchTxEvent {
+    bytes id                             = 1;
+    string method                        = 2;
+    ResponseError error                  = 3;
+    bytes result                         = 4;
+    repeated Event events                = 6;
+    repeated AccountingRecord accounting = 7;
+}
+
+message BatchEvent {
+    repeated BatchTxEvent events = 1;
+}
+
+message BatchResponse {
+    repeated TxResponse tx_responses         = 1;
+    repeated Swap created_swaps              = 2;
+    repeated SwapResponse swap_responses     = 3;
+    repeated SwapResponse swap_key_responses = 4;
+    repeated MultiSwap created_multi_swap = 5;
+}
+
+message Nested {
+    repeated string args = 1;
+}
+
+message TokenFee {
+    string currency = 1;
+    bytes fee       = 2;
+    bytes floor     = 3;
+    bytes cap       = 4;
+}
+
+message TokenRate {
+    string deal_type = 1;
+    string currency  = 2;
+    bytes rate       = 3;
+    bytes min        = 4;
+    bytes max        = 5;
+    Address issuer   = 6;
+}
+
+message Token {
+    bytes total_emission     = 1;
+    TokenFee fee             = 2;
+    repeated TokenRate rates = 3;
+    bytes fee_address        = 4;
+}
+
+message HaveRight {
+    bool haveRight = 1;
+}
+
+message Right {
+    string channelName   = 1;
+    string chaincodeName = 2;
+    string roleName      = 3;
+    string operationName = 4;
+    Address address      = 5;
+    HaveRight haveRight  = 6;
+}
+
+message AccountRights {
+    Address address       = 1; 
+    repeated Right rights = 2;
+}
+
+message Accounts {
+    repeated Address addresses = 1;
+}
+
+message Operations {
+    repeated string operations = 1;
+}
+
+message OperationRights {
+    string operationName  = 1;
+    repeated Right rights = 2;
+}
+
+message Industrial {
+    repeated IndustrialGroup groups = 1;
+    TokenFee fee                    = 2;
+    repeated TokenRate rates        = 3;
+    bytes fee_address               = 4;
+    bool initialized                = 5;
+}
+
+message IndustrialGroup {
+    string id      = 1;
+    bytes emission = 2;
+    int64 maturity = 3;
+    string note    = 4;
+}
+
+message AccountInfo {
+    string kycHash      = 1;
+    bool grayListed     = 2;
+    bool blackListed    = 3;
+}
+
+message Address {
+    string userID                     = 1;
+    bytes address                     = 2;
+    bool isIndustrial                 = 3;
+    bool isMultisig                   = 4;
+}
+
+message SignedAddress {
+    Address address                   = 1;
+    repeated string signedTx          = 2;
+    SignaturePolicy signaturePolicy   = 5;
+    string reason                     = 6;
+    int32 reasonId                    = 7;
+}
+
+message SignaturePolicy {
+    uint32 n                             = 1;
+    repeated bytes pubKeys               = 3;
+    repeated string replaceKeysSignedTx  = 4;
+}
+
+message AclResponse {
+    AccountInfo account     = 1;
+    SignedAddress address   = 2;
+}
+
+message Nonce {
+    repeated uint64 nonce = 1;
+}
+
+message pendingTx {
+    string method        = 1;
+    Address sender       = 2;
+    repeated string args = 3;
+//  bytes ______________ = 4; the field has been deleted, avoid reusing it 
+    int64 timestamp      = 5;
+    uint64 nonce         = 6;
+}
+
+message CCTransfer{
+    string id = 1; // unique transfer id
+    string from = 2; // channel from
+    string to = 3; // channel to
+    string token = 4; // transfer token
+    bytes user = 5; // token holder
+    bytes amount = 6; // number of tokens
+    // Transfer direction is an additional variable made for convenience
+    // so that you don't have to calculate it every time. It is calculated 1 time when filling the structure 
+    // when executing a transaction.
+    // Different balances change depending on the direction.
+    // Examples:
+    // Direct transfer: we transfer A tokens from channel A to channel B
+    // or transfer B tokens from channel B to channel A
+    // Reverse transfer:from channel A to channel B transfer tokens B
+    // or from channel B to channel A transfer tokens A
+    bool forward_direction = 7;
+    bool isCommit = 8; // phase 2 sign
+    int64 time_as_nanos = 9; // transfer creation time in nanoseconds
+}
+
+message CCTransfers {
+    string bookmark         = 1;
+    repeated CCTransfer ccts = 2;
+}

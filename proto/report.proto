@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./;proto";
+
+message Report {
+  bytes fee_public_key = 1;
+  uint64 checksum_orderer = 2;
+  uint64 checksum_endorser = 3;
+  repeated Stat stats = 4;
+}
+
+message Stat {
+  string cert_owner = 1;
+  uint64 points_endorser = 2;
+  uint64 points_orderer = 3;
+}
+
+message HeadInfo { repeated Head heads = 1; }
+
+message Head {
+  string token = 1;
+  uint64 block_num = 2;
+}

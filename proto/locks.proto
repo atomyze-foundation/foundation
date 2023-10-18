@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./;proto";
+
+message BalanceLockRequest {
+  string id = 1; // lock identifier (optional parameter, if not specified - TXID is used)
+  string address = 2; // The owner of the owner
+  string token = 3; // id and ticker token
+  string amount = 4; // big.Int number of locking tokens
+  string reason = 5; // The reason for the blocking
+  repeated bytes docs = 6 ; // Hash of documents with justification (optional parameter)
+  bytes payload = 7 ; // Additional information (optional parameter)
+}
+
+// State: data on blocking the balance sheet
+message TokenBalanceLock {
+  string id = 1; // lock identifier (optional parameter, if not specified, is used txID)
+  string address = 2; // The addres of the owner
+  string token = 3; // id and ticker token
+  string init_amount = 4; // big.Int the initial number of tokens for locking
+  string current_amount = 5; // big.Int The current amount of blocked tokens
+  string reason = 6; // The reason for the blocking
+  repeated bytes docs = 7; // hashes justification documents (optional parameter)
+  bytes payload = 8; // Additional information (optional parameter)
+}
+
+// State: data on blocking alved balance
+message AllowedBalanceLock {
+  string id = 1; // lock identifier (optional parameter, if not specified, is used txID)
+  string address = 2; // owner address
+  string token = 3; // identifier / tiker token
+  string init_amount = 4; // big.Int the initial number of tokens for locking
+  string current_amount = 5; // big.Int the current amount of blocked tokens
+  string reason = 6; // the reason for the blocking
+  repeated bytes docs = 7; // hashes justification documents (optional parameter)
+  bytes payload = 8; // Additional information (optional parameter)
+}
+
+// Event: Token balance is blocked
+message TokenBalanceLocked {
+  string id = 1; // Blocking identifier
+  string address = 2; // owner address
+  string token = 3; // identifier / token tiker
+  string amount = 4; // big.Int number of tokens to lock
+  string reason = 5; // The reason of blocking
+  repeated bytes docs = 6; // hashes of documents with justification (optional parameter)
+  bytes payload = 7; // additional information (optional parameter)
+}
+
+// Event: token balance unlocked
+message TokenBalanceUnlocked {
+  string id = 1; // lock identifier
+  string address = 2; // owner's address
+  string token = 3; // token identifier / token ticker
+  string amount = 4; // big.Int number of tokens to unlock
+  string reason = 5; // blocking reason
+  repeated bytes docs = 6; // hashes of documents with justification (optional parameter)
+  bytes payload = 7; // additional information (optional parameter)
+  bool complete_operation = 8; // a indication that it's fully unlocked
+}
+
+// Event: token balance blocked
+message AllowedBalanceLocked {
+  string id = 1; // lock identifier
+  string address = 2; // owner's address
+  string token = 3; // token identifier / token ticker
+  string amount = 4; // big.Int number of tokens to lock
+  string reason = 5; // blocking reason
+  repeated bytes docs = 6; // hashes of documents with justification (optional parameter)
+  bytes payload = 7; // additional information (optional parameter)
+}
+
+// Event: token balance unlocked
+message AllowedBalanceUnlocked {
+  string id = 1; // lock identifier
+  string address = 2; // owner's address
+  string token = 3; // token identifier / token ticker
+  string amount = 4; // big.Int number of tokens to lock
+  string reason = 5; // blocking reason
+  repeated bytes docs = 6; // hashes of documents with justification (optional parameter)
+  bytes payload = 7; // additional information (optional parameter)
+  bool complete_operation = 8; // a sign that it's completely unlocked
+}
