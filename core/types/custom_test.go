@@ -4,9 +4,9 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	pb "github.com/atomyze-foundation/foundation/proto"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestConvertToAsset(t *testing.T) {

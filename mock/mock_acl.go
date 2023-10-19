@@ -7,13 +7,13 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/atomyze-foundation/foundation/core/acl"
+	"github.com/atomyze-foundation/foundation/core/types"
+	pb "github.com/atomyze-foundation/foundation/proto"
 	"github.com/btcsuite/btcutil/base58"
 	"github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/hyperledger/fabric-chaincode-go/shim"
 	"github.com/hyperledger/fabric-protos-go/peer"
-	"github.com/atomyze-foundation/foundation/core/acl"
-	"github.com/atomyze-foundation/foundation/core/types"
-	pb "github.com/atomyze-foundation/foundation/proto"
 	"golang.org/x/crypto/sha3"
 )
 

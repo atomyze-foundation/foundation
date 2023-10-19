@@ -4,12 +4,12 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/core"
 	"github.com/atomyze-foundation/foundation/core/types"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	"github.com/atomyze-foundation/foundation/mock"
 	"github.com/atomyze-foundation/foundation/token"
+	"github.com/stretchr/testify/assert"
 )
 
 const (

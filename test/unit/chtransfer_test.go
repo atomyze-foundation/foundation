@@ -5,13 +5,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/uuid"
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/core"
 	"github.com/atomyze-foundation/foundation/core/cctransfer"
 	"github.com/atomyze-foundation/foundation/mock"
 	pb "github.com/atomyze-foundation/foundation/proto"
 	"github.com/atomyze-foundation/foundation/token"
+	"github.com/google/uuid"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestByCustomerForwardSuccess(t *testing.T) {

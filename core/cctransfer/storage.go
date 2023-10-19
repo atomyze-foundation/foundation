@@ -1,10 +1,10 @@
 package cctransfer
 
 import (
+	pb "github.com/atomyze-foundation/foundation/proto"
 	"github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/hyperledger/fabric-chaincode-go/shim"
 	"github.com/hyperledger/fabric-protos-go/ledger/queryresult"
-	pb "github.com/atomyze-foundation/foundation/proto"
 )
 
 func LoadCCFromTransfer(stub shim.ChaincodeStubInterface, idArg string) (*pb.CCTransfer, error) {

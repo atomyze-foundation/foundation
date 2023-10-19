@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
+	pb "github.com/atomyze-foundation/foundation/proto"
 	"github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/hyperledger/fabric-chaincode-go/shim"
-	pb "github.com/atomyze-foundation/foundation/proto"
 )
 
 // acl errors

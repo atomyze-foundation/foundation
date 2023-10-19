@@ -3,11 +3,11 @@ package token
 import (
 	"errors"
 
-	pb "github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/atomyze-foundation/foundation/core"
 	"github.com/atomyze-foundation/foundation/core/types"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	"github.com/atomyze-foundation/foundation/proto"
+	pb "github.com/golang/protobuf/proto" //nolint:staticcheck
 )
 
 const (

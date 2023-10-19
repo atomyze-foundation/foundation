@@ -9,12 +9,12 @@ import (
 	"runtime/debug"
 	"strings"
 
-	pb "github.com/golang/protobuf/proto" //nolint:staticcheck
-	"github.com/hyperledger/fabric-chaincode-go/shim"
-	"github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/atomyze-foundation/foundation/core/types"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	"github.com/atomyze-foundation/foundation/proto"
+	pb "github.com/golang/protobuf/proto" //nolint:staticcheck
+	"github.com/hyperledger/fabric-chaincode-go/shim"
+	"github.com/hyperledger/fabric-protos-go/peer"
 	"golang.org/x/crypto/sha3"
 )
 

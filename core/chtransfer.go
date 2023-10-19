@@ -5,11 +5,11 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/atomyze-foundation/foundation/core/cctransfer"
 	"github.com/atomyze-foundation/foundation/core/types"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	pb "github.com/atomyze-foundation/foundation/proto"
+	"github.com/golang/protobuf/proto" //nolint:staticcheck
 )
 
 const (

@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/atomyze-foundation/foundation/core/types/big"
 	"github.com/btcsuite/btcutil/base58"
 	"github.com/hyperledger/fabric-chaincode-go/shim"
-	"github.com/atomyze-foundation/foundation/core/types/big"
 )
 
 var BaseTypes = map[string]interface{}{

@@ -7,11 +7,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/golang/protobuf/proto" //nolint:staticcheck
-	"github.com/hyperledger/fabric-chaincode-go/shim"
 	"github.com/atomyze-foundation/foundation/core/types"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	pb "github.com/atomyze-foundation/foundation/proto"
+	"github.com/golang/protobuf/proto" //nolint:staticcheck
+	"github.com/hyperledger/fabric-chaincode-go/shim"
 )
 
 const (

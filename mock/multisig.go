@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/atomyze-foundation/foundation/core/types"
+	"github.com/atomyze-foundation/foundation/proto"
 	"github.com/btcsuite/btcutil/base58"
 	pb "github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/stretchr/testify/assert"
-	"github.com/atomyze-foundation/foundation/core/types"
-	"github.com/atomyze-foundation/foundation/proto"
 	"golang.org/x/crypto/sha3"
 )
 

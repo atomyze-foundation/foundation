@@ -16,6 +16,7 @@ import (
 	"time"
 	"unicode/utf8"
 
+	"github.com/atomyze-foundation/foundation/core/types/big"
 	"github.com/golang/protobuf/proto" //nolint:staticcheck
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/hyperledger/fabric-chaincode-go/shim"
@@ -24,7 +25,6 @@ import (
 	pb "github.com/hyperledger/fabric-protos-go/peer"
 	"github.com/op/go-logging"
 	"github.com/pkg/errors"
-	"github.com/atomyze-foundation/foundation/core/types/big"
 )
 
 // Logger for the shim package.
@@ -37,12 +37,12 @@ const ErrFuncNotImplemented = "function %s is not implemented"
 type Stub struct {
 	// A pointer back to the chaincode that will invoke this, set by constructor.
 	// If a peer calls this stub, the chaincode will be invoked from here.
-	cc         shim.Chaincode
-	args       [][]byte          // arguments the stub was called with
-	Name       string            // A nice name that can be used for logging
-	State      map[string][]byte // State keeps name value pairs
-	Keys       *list.List        // Keys stores the list of mapped values in lexical order registered list of other Stub chaincodes that can be called from this Stub
-	Invokables map[string]*Stub
+	cc                     shim.Chaincode
+	args                   [][]byte          // arguments the stub was called with
+	Name                   string            // A nice name that can be used for logging
+	State                  map[string][]byte // State keeps name value pairs
+	Keys                   *list.List        // Keys stores the list of mapped values in lexical order registered list of other Stub chaincodes that can be called from this Stub
+	Invokables             map[string]*Stub
 	TxID                   string // stores a transaction uuid while being Invoked / Deployed
 	TxTimestamp            *timestamp.Timestamp
 	signedProposal         *pb.SignedProposal // mocked signedProposal

@@ -7,11 +7,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/btcsuite/btcutil/base58"
-	"github.com/hyperledger/fabric-chaincode-go/shim"
 	"github.com/atomyze-foundation/foundation/core/helpers"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	pb "github.com/atomyze-foundation/foundation/proto"
+	"github.com/btcsuite/btcutil/base58"
+	"github.com/hyperledger/fabric-chaincode-go/shim"
 )
 
 // Address might be more complicated structure

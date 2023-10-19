@@ -5,8 +5,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	customBig "github.com/atomyze-foundation/foundation/core/types/big"
+	"github.com/stretchr/testify/assert"
 )
 
 type BigInt struct {

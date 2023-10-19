@@ -3,8 +3,8 @@ package version_test
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/version"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestCoreChaincodeIDNameTrue(t *testing.T) {

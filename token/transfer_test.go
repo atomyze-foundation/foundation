@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/core"
 	"github.com/atomyze-foundation/foundation/core/types"
 	ma "github.com/atomyze-foundation/foundation/mock"
+	"github.com/stretchr/testify/assert"
 )
 
 const vtName = "Validation Token"

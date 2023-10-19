@@ -3,12 +3,12 @@ package unit
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/core"
 	"github.com/atomyze-foundation/foundation/core/types"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	"github.com/atomyze-foundation/foundation/mock"
 	"github.com/atomyze-foundation/foundation/token"
+	"github.com/stretchr/testify/assert"
 )
 
 func (tt *TestToken) TxTokenBalanceLock(_ *types.Sender, address *types.Address, amount *big.Int) error {

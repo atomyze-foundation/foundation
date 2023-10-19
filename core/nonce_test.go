@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/stretchr/testify/assert"
 	pb "github.com/atomyze-foundation/foundation/proto"
+	"github.com/stretchr/testify/assert"
 )
 
 var (

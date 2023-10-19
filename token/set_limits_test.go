@@ -3,11 +3,11 @@ package token
 import (
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/atomyze-foundation/foundation/core"
 	"github.com/atomyze-foundation/foundation/core/types/big"
 	ma "github.com/atomyze-foundation/foundation/mock"
 	"github.com/atomyze-foundation/foundation/proto"
+	"github.com/stretchr/testify/assert"
 	pb "google.golang.org/protobuf/proto"
 )
 
