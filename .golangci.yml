@@ -3,6 +3,9 @@ run:
   go: '1.18'
   concurrency: 4
   timeout: 5m
+  skip-files:
+    - proto/batch.pb.go
+    - proto/report.pb.go
   tests: false
 linters:
   enable:
@@ -100,4 +103,3 @@ linters-settings:
       - 'G107'
       - 'G402'
       - 'G404'
-
