@@ -194,8 +194,7 @@ func (stub *Stub) GetPrivateDataQueryResult(_, _ string) (shim.StateQueryIterato
 	return nil, fmt.Errorf(ErrFuncNotImplemented, "GetPrivateDataQueryResult")
 }
 
-func (stub *Stub) PurgePrivateData(_, _ string) error { // collection, key
-
+func (stub *Stub) PurgePrivateData(_, _ string) error {
 	return fmt.Errorf(ErrFuncNotImplemented, "PurgePrivateData")
 }
 
