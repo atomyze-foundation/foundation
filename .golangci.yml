@@ -97,9 +97,9 @@ issues:
     - path: _test\.go
       linters:
         - funlen
-linters-settings:
-  gosec:
-    excludes:
-      - 'G107'
-      - 'G402'
-      - 'G404'
+#linters-settings:
+#  gosec:
+#    excludes:
+#      - 'G107'
+#      - 'G402'
+#      - 'G404'
